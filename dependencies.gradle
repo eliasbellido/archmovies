@@ -1,0 +1,13 @@
+ext.versions = [
+        miSdk               : 15,
+        compileSdk          : 29,
+        versionCode         : 1,
+
+
+        //architecture components
+        roomVersion         : '2.2.2',
+
+        // network
+        retrofitVersion          : '2.6.0',
+        okhttpVersion            : '4.1.0',
+]

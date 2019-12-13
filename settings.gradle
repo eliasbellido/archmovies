@@ -1,0 +1,2 @@
+include ':mobile', ':entity', ':network'
+rootProject.name='ArchMovieSearcher'
