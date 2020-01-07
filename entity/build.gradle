@@ -5,26 +5,29 @@ apply plugin: 'kotlin-kapt'
 apply from: '../dependencies.gradle'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileSdkVersion versions.compileSdk
 
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 29
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.compileSdk
         versionCode 1
         versionName "1.0"
+        javaCompileOptions{
+            annotationProcessorOptions{
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
     }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+    compileOptions{
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
+
+
 
     androidExtensions{
         experimental = true
@@ -34,7 +37,7 @@ android {
 
 dependencies {
     //kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlinVersion"
 
     //database
     implementation "androidx.room:room-runtime:$versions.roomVersion"
@@ -42,6 +45,9 @@ dependencies {
 
     //gson converter
     api "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion"
+
+    // timestamp
+    api "com.jakewharton.threetenabp:threetenabp:$versions.threetenabpVersion"
 
 
     implementation 'androidx.appcompat:appcompat:1.1.0'

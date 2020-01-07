@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ArchMovieSearcher</string>
+    <string name="favourites">Favoritos</string>
+    <string name="trailers">Trailers</string>
+    <string name="summary">Resumen</string>
+    <string name="reviews">Reseñas</string>
 </resources>

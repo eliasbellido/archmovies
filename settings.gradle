@@ -1,2 +1,2 @@
-include ':mobile', ':entity', ':network'
+include ':mobile', ':entity', ':network', ':common-ui'
 rootProject.name='ArchMovieSearcher'
