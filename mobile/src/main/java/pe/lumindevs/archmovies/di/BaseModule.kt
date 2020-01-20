@@ -12,5 +12,5 @@ abstract class BaseModule {
     internal abstract fun contributeViewModelActivity(): ViewModelActivity
 
     @ContributesAndroidInjector
-    internal abstract fun contributeViewModelfragment(): ViewModelFragment
+    internal abstract fun contributeViewModelFragment(): ViewModelFragment
 }

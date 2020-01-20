@@ -94,6 +94,7 @@ fun bindBackdrop(view: ImageView, person: Person){
 
 //
 private fun bindBackDrop(view: ImageView, path: String?, posterPath: String?){
+
     path.whatIfNotNull (
         whatIf = {
             Glide.with(view.context).load(PosterPath.getBackdropPath(it))

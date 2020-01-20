@@ -22,7 +22,7 @@ class MovieRepository @Inject constructor(
     override var isLoading = false
 
     init {
-        Timber.d("Injection MovieReporistory")
+        Timber.d("Injection MovieRepository")
     }
 
     fun loadKeywordList(id: Int, error: (String) -> Unit): MutableLiveData<List<Keyword>>{

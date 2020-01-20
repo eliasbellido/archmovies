@@ -11,15 +11,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@color/background">
 
 
         <TextView
             android:id="@+id/item_review_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{review.author}"
-            android:background="@color/background"
             android:textColor="@color/white"
             android:textSize="17sp"
             android:textStyle="bold"
@@ -38,7 +39,7 @@
             app:collapseDrawable="@drawable/ic_arrow_up"
             app:expandDrawable="@drawable/ic_arrow_down"
             app:layout_constraintStart_toStartOf="@+id/item_review_title"
-            app:layout_constraintTop_toTopOf="@+id/item_review_title"
+            app:layout_constraintTop_toBottomOf="@+id/item_review_title"
             app:maxCollapsedLines="4">
 
             <TextView

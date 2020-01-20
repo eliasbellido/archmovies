@@ -20,7 +20,7 @@
         <ImageView
             android:id="@+id/item_poster_post"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="240dp"
             android:scaleType="fitXY"
             android:background="@color/background"
             app:bindingPalettePostUrl="@{tv.poster_path}"
@@ -41,7 +41,7 @@
             app:shimmer_ribbon_background_color="@color/colorPrimaryDark"
             app:shimmer_ribbon_padding_left="6dp"
             app:shimmer_ribbon_padding_right="6dp"
-            app:shimmer_ribbon_text="New!"
+            app:shimmer_ribbon_text="Popular"
             app:shimmer_ribbon_textColor="@android:color/white"
             app:shimmer_ribbon_textSize="4sp"
             app:shimmer_ribbon_textStyle="bold"

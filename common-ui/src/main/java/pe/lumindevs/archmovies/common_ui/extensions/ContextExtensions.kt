@@ -4,5 +4,5 @@ import android.content.Context
 import android.widget.Toast
 
 /** shows a toast message*/
-fun Context.showShortToast(message: String) =
+fun Context.shortToast(message: String) =
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

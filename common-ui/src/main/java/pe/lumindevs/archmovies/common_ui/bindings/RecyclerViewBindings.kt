@@ -7,15 +7,57 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.skydoves.whatif.whatIfNotNullOrEmpty
 import pe.lumindevs.archmovies.common_ui.PosterPath
-import pe.lumindevs.archmovies.common_ui.adapters.MovieListAdapter
+import pe.lumindevs.archmovies.common_ui.adapters.*
+import pe.lumindevs.archmovies.common_ui.extensions.visible
+import pe.lumindevs.archmovies.entity.Review
 import pe.lumindevs.archmovies.entity.Video
 import pe.lumindevs.archmovies.entity.entities.Movie
+import pe.lumindevs.archmovies.entity.entities.Person
+import pe.lumindevs.archmovies.entity.entities.Tv
 
 @BindingAdapter("adapterMovieList")
 fun bindAdapterMovieList(view: RecyclerView, movies: List<Movie>?){
     movies.whatIfNotNullOrEmpty {
         val adapter = view.adapter as? MovieListAdapter
         adapter?.addMovieList(it)
+    }
+}
+
+@BindingAdapter("adapterTvList")
+fun bindAdapterTvList(view: RecyclerView, tvs: List<Tv>?){
+    tvs.whatIfNotNullOrEmpty {
+        val adapter = view.adapter as? TvListAdapter
+        adapter?.addTvList(it)
+    }
+}
+
+@BindingAdapter("adapterPersonList")
+fun bindAdapterPersonList(view: RecyclerView, tvs: List<Person>?){
+    tvs.whatIfNotNullOrEmpty {
+        val adapter = view.adapter as? PeopleAdapter
+        adapter?.addPerson(it)
+    }
+}
+
+@BindingAdapter("adapterVideoList")
+fun bindAdapterVideoList(recyclerView: RecyclerView, videos: List<Video>?){
+    videos.whatIfNotNullOrEmpty {
+        val adapter = VideoListAdapter()
+        adapter.addVideoList(it)
+        recyclerView.adapter = adapter
+        recyclerView.visible()
+    }
+}
+
+@BindingAdapter("adapterReviewList")
+fun bindAdapterReviewList(recyclerView: RecyclerView, reviews: List<Review>?){
+    reviews.whatIfNotNullOrEmpty {
+        val adapter = ReviewListAdapter()
+        adapter.addReviewList(it)
+        recyclerView.adapter = adapter
+        recyclerView.isNestedScrollingEnabled = false
+        recyclerView.setHasFixedSize(true)
+        recyclerView.visible()
     }
 }
 

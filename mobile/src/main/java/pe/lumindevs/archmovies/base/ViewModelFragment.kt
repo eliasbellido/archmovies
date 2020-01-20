@@ -13,6 +13,12 @@ import androidx.lifecycle.ViewModelProvider
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
+/**
+ * ViewModelFragment is an abstract class for request dependency injection and
+ * provides implementations of [ViewModel] and [ViewDataBinding] from an abstract information.
+ * Do not modify this class. This is a first-level abstraction class.
+ * If you want to add more specifications, make another class which extends [ViewModelFragment].
+ */
 abstract class ViewModelFragment : Fragment(){
 
     @Inject

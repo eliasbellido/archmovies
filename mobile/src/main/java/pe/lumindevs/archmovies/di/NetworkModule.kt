@@ -3,10 +3,13 @@ package pe.lumindevs.archmovies.di
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import pe.lumindevs.archmovies.network.EndPoint
 import pe.lumindevs.archmovies.network.RequestInterceptor
+import pe.lumindevs.archmovies.network.client.MovieClient
 import pe.lumindevs.archmovies.network.client.PeopleClient
 import pe.lumindevs.archmovies.network.client.TheDiscoverClient
+import pe.lumindevs.archmovies.network.service.MovieService
 import pe.lumindevs.archmovies.network.service.PeopleService
 import pe.lumindevs.archmovies.network.service.TheDiscoverService
 import retrofit2.Retrofit
@@ -19,7 +22,10 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideHttpClient(): OkHttpClient{
+        val logger = HttpLoggingInterceptor()
+        logger.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient.Builder()
+            .addInterceptor(logger)
             .addInterceptor(RequestInterceptor())
             .build()
     }
@@ -57,6 +63,21 @@ class NetworkModule {
     fun providePeopleClient(peopleService: PeopleService) : PeopleClient {
         return PeopleClient(peopleService)
     }
+
+    @Provides
+    @Singleton
+    fun provideMovieService(retrofit: Retrofit): MovieService {
+        return retrofit.create(MovieService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMovieClient(movieService: MovieService) : MovieClient {
+        return MovieClient(movieService)
+    }
+
+
+
 
 
 }

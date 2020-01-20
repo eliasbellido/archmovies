@@ -52,7 +52,7 @@
             <TextView
                 android:id="@+id/item_video_title"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="25dp"
                 android:padding="3dp"
                 android:gravity="center"
                 android:textColor="@color/white"
@@ -60,7 +60,7 @@
                 android:text="@{video.name}"
                 android:textStyle="bold"
                 android:textSize="14sp"
-                tools:text="title"
+                tools:text="title demasiado largo a ver que ale aca"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

@@ -20,10 +20,10 @@ android {
         vectorDrawables.useSupportLibrary = true
 
     }
-    kotlinOptions{
+    kotlinOptions {
         jvmTarget = "1.8"
     }
-    dataBinding{
+    dataBinding {
         enabled = true
     }
     buildTypes {
@@ -40,7 +40,7 @@ dependencies {
     implementation project(":common-ui")
 
     //kotlin
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlinVersion"
 
     // architecture components
     implementation "androidx.activity:activity-ktx:$versions.activityKtxVersion"
@@ -54,6 +54,7 @@ dependencies {
     implementation "com.google.dagger:dagger:$versions.daggerVersion"
     implementation "com.google.dagger:dagger-android:$versions.daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$versions.daggerVersion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "com.google.dagger:dagger-compiler:$versions.daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$versions.daggerVersion"
 
