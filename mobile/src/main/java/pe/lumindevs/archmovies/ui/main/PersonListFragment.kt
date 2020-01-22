@@ -19,6 +19,7 @@ import pe.lumindevs.archmovies.common_ui.extensions.shortToast
 import pe.lumindevs.archmovies.common_ui.viewholders.PeopleViewHolder
 import pe.lumindevs.archmovies.databinding.FragmentPersonBinding
 import pe.lumindevs.archmovies.entity.entities.Person
+import pe.lumindevs.archmovies.ui.details.person.PersonDetailActivity
 import timber.log.Timber
 
 
@@ -62,6 +63,7 @@ class PersonListFragment : ViewModelFragment(), PeopleViewHolder.Delegate {
     override fun onItemClick(person: Person, view: View) {
         Timber.d("click on person: ${person.name}")
         context?.shortToast("click on person: ${person.name}")
+        PersonDetailActivity.startActivity(activity, person.id, view)
     }
 
     private fun observerMessages() =

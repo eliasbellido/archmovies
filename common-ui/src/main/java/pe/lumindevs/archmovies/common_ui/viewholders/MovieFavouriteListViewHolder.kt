@@ -13,7 +13,7 @@ class MovieFavouriteListViewHolder (
 ): BaseViewHolder(view){
 
     interface Delegate{
-        fun onItemClick(movies: Movie)
+        fun onItemClick(movie: Movie)
     }
 
     private lateinit var movie: Movie

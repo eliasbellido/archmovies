@@ -3,7 +3,6 @@ package pe.lumindevs.archmovies.ui.main
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
-import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import kotlinx.android.synthetic.main.activity_main.*
@@ -19,6 +18,7 @@ import pe.lumindevs.archmovies.common_ui.viewholders.MovieFavouriteListViewHolde
 import pe.lumindevs.archmovies.common_ui.viewholders.TvFavouriteListViewHolder
 import pe.lumindevs.archmovies.entity.entities.Movie
 import pe.lumindevs.archmovies.entity.entities.Tv
+import pe.lumindevs.archmovies.ui.details.movie.MovieDetailActivity
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -86,9 +86,10 @@ class MainActivity : ViewModelActivity(), HasSupportFragmentInjector,
         //agregar tv
     }
 
-    override fun onItemClick(movies: Movie) {
-        Timber.d("click on favourite movie: ${movies.original_title}")
-        this.shortToast("click on favourite movie: ${movies.original_title}")
+    override fun onItemClick(movie: Movie) {
+        Timber.d("click on favourite movie: ${movie.original_title}")
+        this.shortToast("click on favourite movie: ${movie.original_title}")
+        MovieDetailActivity.startActivityModel(this, movie.id)
     }
 
     override fun onItemClick(tv: Tv) {

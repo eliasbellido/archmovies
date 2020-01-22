@@ -3,6 +3,7 @@ package pe.lumindevs.archmovies.common_ui.bindings
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -97,14 +98,19 @@ private fun bindBackDrop(view: ImageView, path: String?, posterPath: String?){
 
     path.whatIfNotNull (
         whatIf = {
-            Glide.with(view.context).load(PosterPath.getBackdropPath(it))
+            Glide.with(view.context)
+                .load(PosterPath.getBackdropPath(it))
+                .error(ContextCompat.getDrawable(view.context, R.drawable.ic_not_found))
                 .listener(view.requestGlideListener())
                 .into(view)
 
         },
         whatIfNot = {
-            Glide.with(view.context).load(PosterPath.getBackdropPath(posterPath))
+            Glide.with(view.context)
+                .load(PosterPath.getBackdropPath(posterPath))
+                .error(ContextCompat.getDrawable(view.context, R.drawable.ic_not_found))
                 .listener(view.requestGlideListener())
+                .into(view)
         }
     )
 }

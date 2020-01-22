@@ -30,6 +30,7 @@ class MovieRepository @Inject constructor(
         val movie = movieDao.getMovie(id)
         var keywords = movie.keywords
         if(keywords.isNullOrEmpty()){
+            Timber.d("keywords in room are empty for this movie")
             isLoading = true
             movieClient.fetchKeywords(id){
                 response ->

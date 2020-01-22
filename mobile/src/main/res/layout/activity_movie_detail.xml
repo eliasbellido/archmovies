@@ -24,6 +24,7 @@
         android:fitsSystemWindows="false">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="280dp"
             android:elevation="4dp"
@@ -69,8 +70,11 @@
                     app:simpleToolbarTitle="@{movie.title}"
                     app:simpleToolbarWithHome="@{activity}"/>
 
+
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
+
+
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -97,8 +101,6 @@
 
 
         </androidx.core.widget.NestedScrollView>
-
-
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

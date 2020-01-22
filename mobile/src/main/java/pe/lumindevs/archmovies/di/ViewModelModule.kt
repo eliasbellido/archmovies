@@ -6,6 +6,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 import pe.lumindevs.archmovies.ui.details.movie.MovieDetailViewModel
+import pe.lumindevs.archmovies.ui.details.person.PersonDetailViewModel
 import pe.lumindevs.archmovies.ui.main.MainActivityViewModel
 import pe.lumindevs.archmovies.utils.AppViewModelFactory
 
@@ -20,7 +21,12 @@ internal abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(MovieDetailViewModel::class)
-    internal abstract fun bindMovieDetailViewModels(movieDetailViewMOdel: MovieDetailViewModel) : ViewModel
+    internal abstract fun bindMovieDetailViewModels(movieDetailViewModel: MovieDetailViewModel) : ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PersonDetailViewModel::class)
+    internal abstract fun bindPersonDetailViewModels(personDetailViewModel: PersonDetailViewModel) : ViewModel
 
     @Binds
     internal abstract fun bindViewModelFactory(factory: AppViewModelFactory) : ViewModelProvider.Factory
