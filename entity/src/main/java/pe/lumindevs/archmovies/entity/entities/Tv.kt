@@ -28,5 +28,5 @@ data class Tv(
     val vote_count: Int,
     val name: String,
     val original_name: String,
-    val favourite: Boolean = false
+    var favourite: Boolean = false
 ): Parcelable

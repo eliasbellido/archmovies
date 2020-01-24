@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import pe.lumindevs.archmovies.ui.details.movie.MovieDetailActivity
 import pe.lumindevs.archmovies.ui.details.person.PersonDetailActivity
+import pe.lumindevs.archmovies.ui.details.tv.TvDetailActivity
 import pe.lumindevs.archmovies.ui.main.MainActivity
 
 @Module
@@ -17,4 +18,7 @@ abstract class ActivityModule{
 
     @ContributesAndroidInjector
     internal abstract fun contributePersonDetailActivity(): PersonDetailActivity
+
+    @ContributesAndroidInjector
+    internal abstract fun contributeTvDetailActivity(): TvDetailActivity
 }

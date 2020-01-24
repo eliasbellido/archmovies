@@ -19,6 +19,7 @@ import pe.lumindevs.archmovies.common_ui.viewholders.TvFavouriteListViewHolder
 import pe.lumindevs.archmovies.entity.entities.Movie
 import pe.lumindevs.archmovies.entity.entities.Tv
 import pe.lumindevs.archmovies.ui.details.movie.MovieDetailActivity
+import pe.lumindevs.archmovies.ui.details.tv.TvDetailActivity
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -95,6 +96,7 @@ class MainActivity : ViewModelActivity(), HasSupportFragmentInjector,
     override fun onItemClick(tv: Tv) {
         Timber.d("click on favourite tv: ${tv.name}")
         this.shortToast("click on favourite tv: ${tv.name}")
+        TvDetailActivity.startActivityModel(this, tv.id)
 
     }
 

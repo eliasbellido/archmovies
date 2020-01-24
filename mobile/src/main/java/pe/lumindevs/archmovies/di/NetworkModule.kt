@@ -9,9 +9,11 @@ import pe.lumindevs.archmovies.network.RequestInterceptor
 import pe.lumindevs.archmovies.network.client.MovieClient
 import pe.lumindevs.archmovies.network.client.PeopleClient
 import pe.lumindevs.archmovies.network.client.TheDiscoverClient
+import pe.lumindevs.archmovies.network.client.TvClient
 import pe.lumindevs.archmovies.network.service.MovieService
 import pe.lumindevs.archmovies.network.service.PeopleService
 import pe.lumindevs.archmovies.network.service.TheDiscoverService
+import pe.lumindevs.archmovies.network.service.TvService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -74,6 +76,18 @@ class NetworkModule {
     @Singleton
     fun provideMovieClient(movieService: MovieService) : MovieClient {
         return MovieClient(movieService)
+    }
+
+    @Provides
+    @Singleton
+    fun provideTvService(retrofit: Retrofit) : TvService {
+        return retrofit.create(TvService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideTvClient(tvService: TvService) : TvClient{
+        return TvClient(tvService)
     }
 
 
