@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="activity"
+            type="androidx.activity.ComponentActivity" />
+
+        <variable
+            name="viewModel"
+            type="pe.lumindevs.mobile_coroutines.ui.details.person.PersonDetailViewModel" />
+
+        <variable
+            name="person"
+            type="pe.lumindevs.archmovies.entity.entities.Person" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include
+                layout="@layout/toolbar_default"
+                app:activity="@{activity}"
+                app:title="@{person.name}"/>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/background800"
+                    app:cardCornerRadius="6dp"
+                    app:cardElevation="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/person_detail_profile"
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:layout_marginTop="20dp"
+                            android:transitionName="@string/transition_profile"
+                            app:bindBackDrop="@{person}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:src="@drawable/ic_tv"
+                            tools:targetApi="LOLLIPOP" />
+
+                        <TextView
+                            android:id="@+id/person_detail_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:text="@{person.name}"
+                            android:textColor="@color/white"
+                            android:textSize="23sp"
+                            app:layout_constraintEnd_toEndOf="@+id/person_detail_profile"
+                            app:layout_constraintStart_toStartOf="@+id/person_detail_profile"
+                            app:layout_constraintTop_toBottomOf="@+id/person_detail_profile"
+                            tools:text="Elías Bellido" />
+
+                        <TextView
+                            android:id="@+id/person_detail_biography"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:padding="10dp"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            app:biography="@{viewModel.personLiveData}"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/person_detail_name"
+                            app:layout_constraintStart_toStartOf="@+id/person_detail_name"
+                            app:layout_constraintTop_toBottomOf="@id/person_detail_name"
+                            tools:text="Nació en Lima Perú en el año 1992" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <com.google.android.material.chip.ChipGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:visibility="gone"
+                    android:padding="10dp"
+                    app:chipSpacingHorizontal="5dp"
+                    app:chipSpacingVertical="6dp"
+                    app:mapNameTagList="@{viewModel.personLiveData}"
+                    app:singleLine="false"
+                    tools:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="@+id/cardView"
+                    app:layout_constraintStart_toStartOf="@+id/cardView"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+</layout>

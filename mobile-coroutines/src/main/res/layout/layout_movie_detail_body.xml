@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="movie"
+            type="pe.lumindevs.archmovies.entity.entities.Movie" />
+
+        <variable
+            name="viewModel"
+            type="pe.lumindevs.mobile_coroutines.ui.details.movie.MovieDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/detail_body_trailers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:text="@string/trailers"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:visibilityByModel="@{viewModel.videoListLiveData}"
+            tools:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/detail_body_recyclerView_trailers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:adapterVideoList="@{viewModel.videoListLiveData}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_video"
+            tools:visibility="visible"
+            app:layout_constraintStart_toStartOf="@+id/detail_body_trailers"
+            app:layout_constraintTop_toBottomOf="@+id/detail_body_trailers" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/summary"
+            app:layout_constraintStart_toStartOf="@+id/detail_body_trailers"
+            app:layout_constraintTop_toBottomOf="@+id/detail_body_recyclerView_trailers" />
+
+        <TextView
+            android:id="@+id/detail_body_summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@{movie.overview}"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            tools:text="This can be a long summary This can be a long summaryThis can be a long summaryThis can be a long summaryThis can be a long summaryThis can be a long summaryThis can be a long summaryThis can be a long summaryThis can be a long summaryThis can be a long summary" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/detail_body_tags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"
+            android:visibility="gone"
+            app:chipSpacingHorizontal="5dp"
+            app:chipSpacingVertical="6dp"
+            app:mapKeywordList="@{viewModel.keywordListLiveData}"
+            app:singleLine="false"
+            tools:visibility="visible"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/detail_body_summary" />
+
+        <TextView
+            android:id="@+id/detail_body_reviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:text="@string/reviews"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:visibilityByModel="@{viewModel.reviewListLiveData}"
+            tools:visibility="visible"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/detail_body_tags" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/detail_body_recyclerview_reviews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:adapterReviewList="@{viewModel.reviewListLiveData}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:visibility="visible"
+            app:layout_constraintStart_toStartOf="@+id/detail_body_reviews"
+            app:layout_constraintTop_toBottomOf="@+id/detail_body_reviews" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ArchMovieSearcher Coroutines</string>
+    <string name="favourites">Favoritos</string>
+    <string name="trailers">Trailers</string>
+    <string name="summary">Resumen</string>
+    <string name="reviews">Reseñas</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

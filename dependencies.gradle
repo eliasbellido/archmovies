@@ -7,7 +7,7 @@ ext.versions = [
 
 
         //kotlin
-        kotlinVersion            :  '1.3.50',
+        kotlinVersion            :  '1.3.61',
         //support library
         materialVersion          : '1.2.0-alpha01',
 
@@ -21,6 +21,12 @@ ext.versions = [
 
         // di
         daggerVersion            : '2.23.2',
+
+        // service locator
+        koinVersion              : '2.0.1',
+
+        // coroutines
+        coroutinesVersion        : '1.3.3',
 
         // glide
         glideVersion             : '4.9.0',
