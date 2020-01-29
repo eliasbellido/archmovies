@@ -25,9 +25,7 @@
 
         </activity>
         <activity android:name=".ui.details.person.PersonDetailActivity">
-        </activity>
-        <activity android:name=".ui.details.tv.TvDetailActivity">
-            
+
         </activity>
     </application>
 

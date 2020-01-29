@@ -12,7 +12,6 @@ import pe.lumindevs.archmovies.base.ViewModelActivity
 import pe.lumindevs.archmovies.common_ui.extensions.checkIsMaterialVersion
 import pe.lumindevs.archmovies.common_ui.extensions.shortToast
 import pe.lumindevs.archmovies.databinding.ActivityPersonDetailBinding
-import timber.log.Timber
 
 class PersonDetailActivity : ViewModelActivity() {
 

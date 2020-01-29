@@ -14,17 +14,14 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="200dp"
-        android:layout_height="290dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginEnd="10dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/item_poster_post"
-            android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@color/background"
-            android:scaleType="fitXY"
             app:bindingPalettePostUrl="@{tv.poster_path}"
             app:palette="@{palette}"
             app:layout_constraintStart_toStartOf="parent"

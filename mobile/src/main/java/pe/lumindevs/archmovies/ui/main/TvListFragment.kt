@@ -17,7 +17,6 @@ import pe.lumindevs.archmovies.common_ui.extensions.shortToast
 import pe.lumindevs.archmovies.common_ui.viewholders.TvListViewHolder
 import pe.lumindevs.archmovies.databinding.FragmentTvBinding
 import pe.lumindevs.archmovies.entity.entities.Tv
-import pe.lumindevs.archmovies.ui.details.tv.TvDetailActivity
 import timber.log.Timber
 
 /**
@@ -63,7 +62,6 @@ class TvListFragment : ViewModelFragment(), TvListViewHolder.Delegate {
     override fun onItemClick(tv: Tv) {
         Timber.d("click on tv: ${tv.name}")
         context?.shortToast("click on tv: ${tv.name}")
-        TvDetailActivity.startActivityModel(requireContext(), tv.id)
     }
 
     private fun observeMessages() =
